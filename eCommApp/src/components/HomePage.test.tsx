@@ -14,7 +14,7 @@ vi.mock('./Footer', () => ({
 }));
 
 // Mock fetch API
-global.fetch = vi.fn();
+(globalThis as any).fetch = vi.fn();
 
 /**
  * Helper to render HomePage with required Router context
@@ -30,7 +30,7 @@ const renderHomePage = () => {
 describe('HomePage', () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    (global.fetch as any).mockResolvedValue({
+    ((globalThis as any).fetch as any).mockResolvedValue({
       json: async () => ({
         status: 'success',
         message: 'https://images.dog.ceo/breeds/hound-afghan/n02088094_1003.jpg'
@@ -151,7 +151,7 @@ describe('HomePage', () => {
 
   it('should fetch new dog image when Next button is clicked', async () => {
     const user = userEvent.setup();
-    (global.fetch as any).mockResolvedValueOnce({
+    ((globalThis as any).fetch as any).mockResolvedValueOnce({
       json: async () => ({
         status: 'success',
         message: 'https://images.dog.ceo/breeds/hound-afghan/n02088094_1003.jpg'

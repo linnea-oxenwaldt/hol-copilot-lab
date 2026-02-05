@@ -30,3 +30,10 @@ export interface Product {
     reviews: Review[];
     inStock: boolean;
 }
+
+export interface DogVote {
+    id: string;
+    imageUrl: string;
+    votes: number;
+    timestamp: Date;
+}
