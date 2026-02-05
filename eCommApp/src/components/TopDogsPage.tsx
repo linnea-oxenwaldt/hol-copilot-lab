@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import { DogVotesContext } from '../context/DogVotesContext';
@@ -22,7 +23,7 @@ const TopDogsPage = () => {
                     {topDogs.length === 0 ? (
                         <div className="empty-state">
                             <p>No dogs voted yet today!</p>
-                            <p>Visit the <a href="/">home page</a> and start voting for your favorite dogs! 👍</p>
+                            <p>Visit the <Link to="/">home page</Link> and start voting for your favorite dogs! 👍</p>
                         </div>
                     ) : (
                         <>

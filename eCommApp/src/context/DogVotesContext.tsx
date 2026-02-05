@@ -32,10 +32,10 @@ const loadVotes = (): DogVote[] => {
         if (!stored) return [];
         
         const votes = JSON.parse(stored);
-        // Convert timestamp strings back to Date objects
+        // Convert timestamp strings back to Date objects, with fallback for missing timestamps
         return votes.map((vote: any) => ({
             ...vote,
-            timestamp: new Date(vote.timestamp)
+            timestamp: vote.timestamp ? new Date(vote.timestamp) : new Date()
         }));
     } catch (error) {
         console.error('Error loading votes from localStorage:', error);
@@ -47,7 +47,6 @@ const loadVotes = (): DogVote[] => {
 const saveVotes = (votes: DogVote[]) => {
     try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(votes));
-        localStorage.setItem(LAST_RESET_KEY, new Date().toISOString());
     } catch (error) {
         console.error('Error saving votes to localStorage:', error);
     }
