@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <header className="app-header">
+            <div className="dog-border">
+                🐶 🐕 🦮 🐕‍🦺 🐩 🐶 🐕 🦮 🐕‍🦺 🐩 🐶 🐕 🦮 🐕‍🦺 🐩 🐶 🐕 🦮 🐕‍🦺 🐩
+            </div>
             <h1>The Daily Harvest</h1>
             <nav>
                 <Link to="/">Home</Link>
