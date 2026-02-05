@@ -642,3 +642,131 @@
         margin-top: 1rem;
     }
 }
+
+/* Top Dogs Leaderboard Styles */
+.top-dogs-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 1rem;
+    padding: 3rem;
+    max-width: 1200px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.top-dogs-container h2 {
+    font-size: 2.5rem;
+    color: #667eea;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.leaderboard-description {
+    font-size: 1.1rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.empty-state p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.empty-state a {
+    color: #667eea;
+    text-decoration: underline;
+}
+
+.empty-state a:hover {
+    color: #5a6fd8;
+}
+
+.top-dogs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.dog-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #e1e5e9;
+    position: relative;
+}
+
+.dog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.dog-rank {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dog-card-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    background-color: #f8f9fa;
+}
+
+.dog-votes {
+    padding: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.vote-count {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.vote-label {
+    font-size: 1rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .top-dogs-container {
+        padding: 2rem 1rem;
+    }
+
+    .top-dogs-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .dog-card-image {
+        height: 200px;
+    }
+}

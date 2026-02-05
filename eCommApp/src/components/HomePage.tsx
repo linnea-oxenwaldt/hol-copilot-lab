@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import { DogVotesContext } from '../context/DogVotesContext';
 
 // Fallback dog images - using placeholder.com which is more reliable
 const FALLBACK_DOG_IMAGES = [
@@ -12,6 +13,7 @@ const FALLBACK_DOG_IMAGES = [
 ];
 
 const HomePage = () => {
+    const dogVotesContext = useContext(DogVotesContext);
     const [dogImage, setDogImage] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(true);
     const [emoji, setEmoji] = useState<string>('');
@@ -46,6 +48,10 @@ const HomePage = () => {
 
     const handleThumbsUp = () => {
         setEmoji('😊');
+        // Add vote to context if available
+        if (dogVotesContext && dogImage) {
+            dogVotesContext.addVote(dogImage);
+        }
     };
 
     const handleThumbsDown = () => {

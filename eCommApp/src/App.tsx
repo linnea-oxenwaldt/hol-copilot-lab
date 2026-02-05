@@ -5,20 +5,25 @@ import LoginPage from './components/LoginPage';
 import AdminPage from './components/AdminPage';
 import CartPage from './components/CartPage';
 import ContactUsPage from './components/ContactUsPage';
+import TopDogsPage from './components/TopDogsPage';
 import { CartProvider } from './context/CartContext';
+import { DogVotesProvider } from './context/DogVotesContext';
 import './App.css';
 
 function App() {
     return (
         <CartProvider>
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/products" element={<ProductsPage />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/admin" element={<AdminPage />} />
-                <Route path="/cart" element={<CartPage />} />
-                <Route path="/contact" element={<ContactUsPage />} />
-            </Routes>
+            <DogVotesProvider>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/products" element={<ProductsPage />} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/admin" element={<AdminPage />} />
+                    <Route path="/cart" element={<CartPage />} />
+                    <Route path="/contact" element={<ContactUsPage />} />
+                    <Route path="/top-dogs" element={<TopDogsPage />} />
+                </Routes>
+            </DogVotesProvider>
         </CartProvider>
     );
 }
