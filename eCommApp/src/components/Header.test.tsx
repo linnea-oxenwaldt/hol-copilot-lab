@@ -75,6 +75,6 @@ describe('Header', () => {
   it('should render all navigation links', () => {
     renderHeader();
     const links = screen.getAllByRole('link');
-    expect(links).toHaveLength(4); // Home, Products, Cart, Login
+    expect(links).toHaveLength(6); // Home, Products, Top Dogs, Cart, Contact Us, Login
   });
 });
