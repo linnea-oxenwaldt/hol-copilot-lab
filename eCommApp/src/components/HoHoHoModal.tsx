@@ -1,3 +1,8 @@
+/**
+ * Festive modal component that displays "Ho Ho Ho!" when items are added to the cart.
+ * Shows a Christmas-themed popup with a "Merry Christmas" button to close.
+ */
+
 interface HoHoHoModalProps {
     onClose: () => void;
 }
