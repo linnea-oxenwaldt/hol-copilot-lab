@@ -1,10 +1,10 @@
 {
     "id": "2",
-    "name": "Grapes",
-    "description": "A bunch of sweet grapes",
-    "price": 2.5,
-    "image": "grapes.png",
-    "category": "fruits",
+    "name": "Jolly Santa",
+    "description": "Santa with festive holiday cheer",
+    "price": 250,
+    "image": "santa2.png",
+    "category": "santas",
     "inStock": true,
     "reviews": []
 }

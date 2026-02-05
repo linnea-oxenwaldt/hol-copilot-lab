@@ -3,12 +3,14 @@ import { Product, Review } from '../types';
 import Header from './Header';
 import Footer from './Footer';
 import ReviewModal from './ReviewModal';
+import HoHoHoModal from './HoHoHoModal';
 import { CartContext } from '../context/CartContext';
 
 const ProductsPage = () => {
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+    const [showHoHoHoModal, setShowHoHoHoModal] = useState(false);
     const cartContext = useContext(CartContext);
 
     if (!cartContext) {
@@ -92,7 +94,10 @@ const ProductsPage = () => {
                                         <p className="product-description">{product.description}</p>
                                     )}
                                     <button 
-                                        onClick={() => addToCart(product)}
+                                        onClick={() => {
+                                            addToCart(product);
+                                            setShowHoHoHoModal(true);
+                                        }}
                                         className={`add-to-cart-btn ${product.inStock ? '' : 'disabled'}`}
                                         disabled={!product.inStock}
                                     >
@@ -110,6 +115,9 @@ const ProductsPage = () => {
                 onClose={() => setSelectedProduct(null)}
                 onSubmit={handleReviewSubmit}
             />
+            {showHoHoHoModal && (
+                <HoHoHoModal onClose={() => setShowHoHoHoModal(false)} />
+            )}
         </div>
     );
 };
