@@ -18,7 +18,14 @@ const AdminPage = () => {
                         {/* Display error message above the input */}
                         {errorMessage && (
                             <div style={{ color: 'red', marginBottom: '0.5rem' }}>
-                                <span dangerouslySetInnerHTML={{ __html: errorMessage }} />
+                                <span>
+                                    {errorMessage.split('\n').map((line, index) => (
+                                        <span key={index}>
+                                            {line}
+                                            {index < errorMessage.split('\n').length - 1 && <br />}
+                                        </span>
+                                    ))}
+                                </span>
                             </div>
                         )}
                         <label htmlFor="salePercent">Set Sale Percent (% off for all items): </label>
